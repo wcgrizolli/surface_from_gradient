@@ -48,6 +48,7 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 
  $> git clone https://gitlab.com/wcgrizolli/pythonWorkspace.git
 
+ 
 **NOTE**: This is a private project. Your need to have a user at gitlab.com and to be added to the project to have access.
 
 
