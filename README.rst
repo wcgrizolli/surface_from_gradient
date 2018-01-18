@@ -1,7 +1,6 @@
-=====================
-surface_from_gradient
-=====================
-
+============================================
+**Surface from Gradient scripts for Python**
+============================================
 
 surface_from_gradient_ is Python library to calculate a surface from the
 gradient data. It relies in `GNU Octave`_ and oct2py_ library to run codes
@@ -11,10 +10,10 @@ originally written in MATLAB©
 .. _GNU Octave: https://www.gnu.org/software/octave/
 .. _oct2py: http://blink1073.github.io/oct2py/
 
--------------
-Documentation
--------------
-The MATLAB codes are described here:
+-----------------
+**Documentation**
+-----------------
+The original MATLAB codes are described here:
 
 1) Agrawal, A., Raskar, R., & Chellappa, R. (2006). What Is the Range of Surface
 Reconstructions from a Gradient
@@ -32,11 +31,11 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 
 
 
----------------------------
-Installation
----------------------------
+================
+**Installation**
+================
 
-
+*Requirements*: git, `GNU Octave`_, conda
 
 
 ---------------------
@@ -66,9 +65,31 @@ Installation
 >>> git config credential.helper store
 
 
----------------------------
-Installing the MATLAB files
----------------------------
+
+-----------------------------------
+**Solving dependencies with conda**
+-----------------------------------
+
+.. NOTE:: You need to have ``anaconda`` or ``miniconda`` installed
+
+
+**Creating conda enviroment**
+------------------------------
+
+>>> conda create -n ENV_NAME python=3.5 numpy=1.11  scipy=0.17 matplotlib=1.5 spyder=2.3.9 --yes
+
+.. WARNING:: edit ``ENV_NAME``
+
+
+**Soving dependencies with conda**
+----------------------------------
+
+>>> conda install -c conda-forge oct2py
+
+
+===============================
+**Installing the MATLAB files**
+===============================
 
 The MATLAB scripts must be downloaded, unzipe and properly
 placed at the directory tree. The script ``install_mfiles.sh`` is supposed to
