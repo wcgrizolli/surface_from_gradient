@@ -39,7 +39,7 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 
 
 ======================================
-**Step 1 - Syncing with gitlab**
+**Step 1 Syncing with gitlab**
 ======================================
 
 *Requirements*: git, `GNU Octave`_, conda
