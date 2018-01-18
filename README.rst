@@ -47,3 +47,12 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 
 **NOTE**: You need to have ``git`` installed
 
+
+**Clone**
+----------
+
+::
+
+ $> git clone https://gitlab.com/wcgrizolli/pythonWorkspace.git
+
+ 
