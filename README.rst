@@ -31,16 +31,12 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 
 
 
-================
-**Installation**
-================
+======================================
+**Step 1 - Syncing with gitlab**
+======================================
 
-*Requirements*: git, `GNU Octave`_, conda
+**Requirements**: git, `GNU Octave`_, conda
 
-
----------------------
-**Syncing with git**
----------------------
 
 **NOTE**: You need to have ``git`` installed
 
@@ -52,7 +48,7 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 
  $> git clone https://gitlab.com/wcgrizolli/pythonWorkspace.git
 
-.. NOTE: This is a private project. Your need to have a user at gitlab.com and to be added to the project to have access.
+**NOTE**: This is a private project. Your need to have a user at gitlab.com and to be added to the project to have access.
 
 
 **Update your local installation**
@@ -74,6 +70,9 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 
 
 
+====================================================
+**Step 2 - Installing dependencies with conda**
+====================================================
 
 **Creating conda enviroment**
 ------------------------------
@@ -95,9 +94,9 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
  $> conda install -c conda-forge oct2py
 
 
-===============================
-**Installing the MATLAB files**
-===============================
+=========================================
+**Step 3 - Installing the MATLAB files**
+=========================================
 
 The MATLAB scripts must be downloaded, unzipe and properly
 placed at the directory tree. The script ``install_mfiles.sh`` is supposed to
@@ -127,8 +126,11 @@ By the end of the script, the directory tree should looks like::
 		└── output
 
 
+=========================================
+**Step 4 - Running test files**
+=========================================
 
-
+**SEE** ``octave/README.rst``
 
 --------------------
 Formating README.rst
