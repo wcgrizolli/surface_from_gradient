@@ -14,7 +14,7 @@ octave:> run test_script_for_octave
 ```
 
 When using in a fresh isntall, first you need to install the following
-[pkgOctave]: [pkgImage], [pkgControl] and [pkgSignal]. To install the packages,
+[pkgOctave] : [pkgImage], [pkgControl] and [pkgSignal]. To install the packages,
 type in Octave::
 
 
