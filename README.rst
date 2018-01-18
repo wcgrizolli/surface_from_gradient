@@ -24,3 +24,9 @@ The MATLAB codes are described here:
 
 - `MATLAB codes <https://www.mathworks.com/matlabcentral/fileexchange/43149-surface-reconstruction-from-gradient-fields--grad2surf-version-1-0?s_tid=prof_contriblnk>`_
 
+
+--------------------
+Formating README.rst
+--------------------
+
+* `cheat-sheet for reStructuredText <http://docutils.sourceforge.net/docs/user/rst/quickref.html>_`
