@@ -126,9 +126,9 @@ By the end of the script, the directory tree should looks like::
 		└── output
 
 
-=========================================
+================================
 **Step 4 - Running test files**
-=========================================
+================================
 
 **SEE** ``octave/README.rst``
 
