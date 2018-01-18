@@ -14,7 +14,7 @@ octave:> run test_script_for_octave
 ```
 
 When using in a fresh isntall, first you need to install the following
-[Octave packages]: [Image], [Control] and [Signal]. To install the packages,
+[Octave packages] : [Image], [Control] and [Signal]. To install the packages,
 type in Octave::
 
 
