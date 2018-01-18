@@ -28,11 +28,9 @@ Well known problems:
 
 To install the packages, type in Octave:
 
->>> octave:> pkg install -forge control
->>> octave:> pkg install -forge signal
->>> octave:> pkg install -forge image
-
 ::
+
   octave:> pkg install -forge image
   octave:> pkg install -forge image
   octave:> pkg install -forge image
+
