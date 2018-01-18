@@ -7,11 +7,6 @@ Surface from Gradient scripts for Python
 gradient data. It relies in [octave] and [oct2py] library to run codes
 originally written in MATLAB©
 
-[surface_from_gradient]: https://gitlab.com/wcgrizolli/surface_from_gradient "surface_from_gradient"
-[octave]: https://www.gnu.org/software/octave/ "GNU Octave"
-[oct2py]: http://blink1073.github.io/oct2py/ "oct2py"
-
-
 Documentation
 -------------
 
@@ -36,29 +31,24 @@ Installation
 ### Step 1 - Syncing with gitlab
 
 
-*Requirements*: git, `[octave], conda
+**Requirements**: [git], [conda], [octave]
 
 
-NOTE: You need to have ``git`` installed
-
-
--
-Clone
--
+#### Clone
 
 >>> git clone https://gitlab.com/wcgrizolli/pythonWorkspace.git
 
  
-NOTE: This is a private project. Your need to have a user at gitlab.com and to be added to the project to have access.
+**NORE**: This is a private project. Your need to have a user at gitlab.com and to be added to the project to have access.
 
--
-Update your local installation
--
+
+#### Update your local installation
+
 
 >>> git pull
 
 
-To make git to store your credentials
+#### Make git to store your credentials
 
 
 >>> git config credential.helper store
@@ -66,16 +56,18 @@ To make git to store your credentials
 
 
 
-Step 2 - Installing dependencies with conda
+### Step 2 - Installing dependencies with conda
 
 
 
 Creating conda enviroment
 
 
-NOTE: You need to have ``anaconda`` or ``miniconda`` installed
+**NORE**: You need to have ``anaconda`` or ``miniconda`` installed
 
->>> conda create -n ENV_NAME python=3.5 numpy=1.11  scipy=0.17 matplotlib=1.5 spyder=2.3.9 yes
+```shell
+conda create -n ENV_NAME python=3.5 numpy=1.11  scipy=0.17 matplotlib=1.5 spyder=2.3.9 yes
+```
 
 .. WARNING:: edit ``ENV_NAME``
 
@@ -122,7 +114,7 @@ By the end of the script, the directory tree should looks like::
 Step 4 - Running test files
 
 
-NOTE octave/README.rst
+**NORE** octave/README.rst
 
 
 Formating README.rst
@@ -131,3 +123,13 @@ Formating README.rst
 * `cheat-sheet for reStructuredText <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_
 
 * https://gitlab.com/help/user/markdown
+
+
+
+
+
+[surface_from_gradient]: https://gitlab.com/wcgrizolli/surface_from_gradient "surface_from_gradient"
+[octave]: https://www.gnu.org/software/octave/ "GNU Octave"
+[oct2py]: http://blink1073.github.io/oct2py/ "oct2py"
+[conda]: https://conda.io/docs/index.html "conda"
+[git]: https://git-scm.com "git"
