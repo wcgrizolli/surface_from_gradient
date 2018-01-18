@@ -24,6 +24,31 @@ The MATLAB codes are described here:
 
 - `MATLAB codes <https://www.mathworks.com/matlabcentral/fileexchange/43149-surface-reconstruction-from-gradient-fields--grad2surf-version-1-0?s_tid=prof_contriblnk>`_
 
+This toolbox also needs `Discrete Orthogonal Polynomial Toolbox <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_.
+
+
+---------------------------
+Installing the MATLAB files
+---------------------------
+
+The script ``install_mfiles.sh`` is supposed to download, unzip and properly
+place the files in the directory tree, which should looks like::
+
+	├── g2sAgrawal
+	│   └── AgrawalECCV06CodeMFiles
+	├── g2sHarker
+	│   ├── DOPBox
+	│   │   └── DOPBoxV1-8
+	│   │       ├── Documentation
+	│   │       ├── DOPbox
+	│   │       └── SupportFns
+	│   └── grad2Surf
+	│       └── grad2SurfV1-0
+	│           ├── Documentation
+	│           └── grad2Surf
+	└── octave
+		└── output
+
 
 --------------------
 Formating README.rst
