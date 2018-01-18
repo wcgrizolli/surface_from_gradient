@@ -30,13 +30,12 @@ Well known problems:
 .. _Control: https://octave.sourceforge.io/control/index.html
 .. _Signal: https://octave.sourceforge.io/signal/index.html
 
-To install the packages, type in Octave:
+To install the packages, type in Octave::
 
-::
 
-  octave:> pkg install -forge image
-  octave:> pkg install -forge image
-  octave:> pkg install -forge image
+ octave:> pkg install -forge image
+ octave:> pkg install -forge image
+ octave:> pkg install -forge image
   
 
 This is the end
