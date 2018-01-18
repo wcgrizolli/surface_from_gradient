@@ -36,8 +36,9 @@ Installation
 
 #### Clone
 
->>> git clone https://gitlab.com/wcgrizolli/pythonWorkspace.git
-
+```shell
+git clone https://gitlab.com/wcgrizolli/pythonWorkspace.git
+```
  
 **NORE**: This is a private project. Your need to have a user at gitlab.com and to be added to the project to have access.
 
@@ -45,14 +46,16 @@ Installation
 #### Update your local installation
 
 
->>> git pull
-
+```shell
+git pull
+```
 
 #### Make git to store your credentials
 
 
->>> git config credential.helper store
-
+```shell
+git config credential.helper store
+```
 
 
 
@@ -75,24 +78,32 @@ conda create -n ENV_NAME python=3.5 numpy=1.11  scipy=0.17 matplotlib=1.5 spyder
 Soving dependencies with conda
 -
 
->>> conda install -c conda-forge oct2py
+
+```shell
+conda install -c conda-forge oct2py
+
+```
 
 
-=
-Step 3 - Installing the MATLAB files
-=
+### Step 3 - Installing the MATLAB files
+
 
 The MATLAB scripts must be downloaded, unzipe and properly
 placed at the directory tree. The script ``install_mfiles.sh`` is supposed to
 take care of that (LINUX only). You must run:
 
->>> chmod +x install_mfiles.sh
->>> ./install_mfiles.sh
+
+```shell
+chmod +x install_mfiles.sh
+./install_mfiles.sh
+```
 
 
 
 By the end of the script, the directory tree should looks like::
 
+
+```shell
 	surface_from_gradient
 	├── g2sAgrawal
 	│   └── AgrawalECCV06CodeMFiles
@@ -109,15 +120,16 @@ By the end of the script, the directory tree should looks like::
 	└── octave
 		└── output
 
+```
 
 
-Step 4 - Running test files
+#### Step 4 - Running test files
 
 
 **NORE** octave/README.rst
 
 
-Formating README.rst
+#### Formating README.rst
 
 
 * `cheat-sheet for reStructuredText <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_
