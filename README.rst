@@ -42,7 +42,7 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 **Syncing with git**
 ---------------------
 
-.. NOTE:: You need to have ``git`` installed
+**NOTE**: You need to have ``git`` installed
 
 
 **Clone**
@@ -52,7 +52,7 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 
  $> git clone https://gitlab.com/wcgrizolli/pythonWorkspace.git
 
-.. NOTE:: This is a private project. Your need to have a user at gitlab.com and to be added to the project to have access.
+.. NOTE: This is a private project. Your need to have a user at gitlab.com and to be added to the project to have access.
 
 
 **Update your local installation**
@@ -72,15 +72,13 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 
 
 
------------------------------------
-**Solving dependencies with conda**
------------------------------------
 
-.. NOTE:: You need to have ``anaconda`` or ``miniconda`` installed
 
 
 **Creating conda enviroment**
 ------------------------------
+
+**NOTE**: You need to have ``anaconda`` or ``miniconda`` installed
 
 ::
 
@@ -112,6 +110,7 @@ take care of that (LINUX only). You must run::
 
 By the end of the script, the directory tree should looks like::
 
+	surface_from_gradient
 	├── g2sAgrawal
 	│   └── AgrawalECCV06CodeMFiles
 	├── g2sHarker
