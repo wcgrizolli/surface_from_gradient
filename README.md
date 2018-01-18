@@ -25,14 +25,15 @@ The original MATLAB codes are described here:
 
 2) [Harker, M., & O’Leary, P. (2015). MATLAB toolbox for the regularized surface reconstruction from gradients.](<https://doi.org/10.1117/12.2182827)
 
-- `MATLAB codes <https://www.mathworks.com/matlabcentral/fileexchange/43149-surface-reconstruction-from-gradient-fieldsgrad2surf-version-1-0?s_tid=prof_contriblnk>`_
+- [MATLAB codes](https://www.mathworks.com/matlabcentral/fileexchange/43149-surface-reconstruction-from-gradient-fieldsgrad2surf-version-1-0?s_tid=prof_contriblnk)
 
-- Additional toolbox used: `Discrete Orthogonal Polynomial Toolbox <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_.
-
-
+- Additional toolbox required: [Discrete Orthogonal Polynomial Toolbox](http://docutils.sourceforge.net/docs/user/rst/quickref.html)
 
 
-Step 1 - Syncing with gitlab
+Installation
+-------------
+
+### Step 1 - Syncing with gitlab
 
 
 *Requirements*: git, `[octave], conda
