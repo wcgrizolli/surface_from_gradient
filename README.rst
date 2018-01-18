@@ -52,9 +52,7 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 **Clone**
 ----------
 
-::
-
- $ git clone https://gitlab.com/wcgrizolli/pythonWorkspace.git
+>>> git clone https://gitlab.com/wcgrizolli/pythonWorkspace.git
 
  
 **NOTE**: This is a private project. Your need to have a user at gitlab.com and to be added to the project to have access.
@@ -63,17 +61,13 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 **Update your local installation**
 ----------------------------------
 
-::
-
- $ git pull
+>>> git pull
 
 -----------------------------------------
 **To make git to store your credentials**
 -----------------------------------------
 
-::
-
- $ git config credential.helper store
+>>> git config credential.helper store
 
 
 
@@ -87,9 +81,7 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 
 **NOTE**: You need to have ``anaconda`` or ``miniconda`` installed
 
-::
-
- $ conda create -n ENV_NAME python=3.5 numpy=1.11  scipy=0.17 matplotlib=1.5 spyder=2.3.9 --yes
+>>> conda create -n ENV_NAME python=3.5 numpy=1.11  scipy=0.17 matplotlib=1.5 spyder=2.3.9 --yes
 
 .. WARNING:: edit ``ENV_NAME``
 
@@ -97,9 +89,7 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 **Soving dependencies with conda**
 ----------------------------------
 
-::
-
- $ conda install -c conda-forge oct2py
+>>> conda install -c conda-forge oct2py
 
 
 =========================================
@@ -108,10 +98,10 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 
 The MATLAB scripts must be downloaded, unzipe and properly
 placed at the directory tree. The script ``install_mfiles.sh`` is supposed to
-take care of that (LINUX only). You must run::
+take care of that (LINUX only). You must run:
 
- $ chmod +x install_mfiles.sh
- $ ./install_mfiles.sh
+>>> chmod +x install_mfiles.sh
+>>> ./install_mfiles.sh
 
 
 
