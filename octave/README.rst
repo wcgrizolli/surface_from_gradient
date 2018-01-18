@@ -19,11 +19,14 @@ Well known problems:
 
 1) Octave version < 4 is not ploting the graphs. Use the plot flag within the script.
 
-2) you need to install the Image, the Control and the Signal packages_ for Octave.
+2) you need to install the following `Octave packages`_ : Image_, Control_ and Signal_
 
-.. _packages: https://octave.sourceforge.io/packages.php
+.. _Octave packages: https://octave.sourceforge.io/packages.php
+.. _Image: https://octave.sourceforge.io/image/index.html
+.. _Control: https://octave.sourceforge.io/control/index.html
+.. _Signal: https://octave.sourceforge.io/signal/index.html
 
-	In Octave, type:
+	To install, type in Octave:
 
 	>>> octave:> pkg install -forge control
 	>>> octave:> pkg install -forge signal

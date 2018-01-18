@@ -20,7 +20,8 @@ restoredefaultpath();
 addpath(genpath('../g2sAgrawal/AgrawalECCV06CodeMFiles/'));
 addpath(genpath('../g2sHarker/grad2Surf/'));
 addpath(genpath('../g2sHarker/DOPBox/'));
-addpath('~/Height data from gradient fields/codes/wg_scripts/')
+
+mkdir output
 
 %graphics_toolkit fltk
 pkg load signal
