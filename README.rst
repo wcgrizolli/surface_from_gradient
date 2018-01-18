@@ -9,11 +9,9 @@ Documentation
 -------------
 The MATLAB codes are described here:
 
-* ARTICLE 1: Agrawal, A., Raskar, R., & Chellappa, R. (2006). What Is
-the Range of Surface Reconstructions from a Gradient Field?
+* ARTICLE 1: Agrawal, A., Raskar, R., & Chellappa, R. (2006). What Is the Range of Surface Reconstructions from a Gradient Field?
 `LINK <https://doi.org/10.1007/11744023_45>`_.
 
-* ARTICLE 2: Harker, M., & O’Leary, P. (2015). MATLAB toolbox for the
-regularized surface reconstruction from gradients.
+* ARTICLE 2: Harker, M., & O’Leary, P. (2015). MATLAB toolbox for the regularized surface reconstruction from gradients.
 `LINK <https://doi.org/10.1117/12.2182827>`_.
 
