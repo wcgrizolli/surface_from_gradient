@@ -1,14 +1,14 @@
 
 
-Surface from Gradient scripts for Python
-========================================
+# Surface from Gradient scripts for Python
+==========================================
 
 [surface_from_gradient] is Python library to calculate a surface from the
 gradient data. It relies in [octave] and [oct2py] library to run codes
 originally written in MATLAB©
 
-Documentation
--------------
+## Documentation
+-----------------
 
 The original MATLAB codes are described here:
 
@@ -25,8 +25,8 @@ The original MATLAB codes are described here:
 - Additional toolbox required: [Discrete Orthogonal Polynomial Toolbox](http://docutils.sourceforge.net/docs/user/rst/quickref.html)
 
 
-Installation
--------------
+# Installation
+---------------
 
 ### Step 1 - Syncing with gitlab
 
