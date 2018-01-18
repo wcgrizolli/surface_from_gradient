@@ -22,3 +22,5 @@ The MATLAB codes are described here:
 
 2) Harker, M., & O’Leary, P. (2015). MATLAB toolbox for the regularized surface reconstruction from gradients. `LINK <https://doi.org/10.1117/12.2182827>`_.
 
+- `MATLAB codes <https://www.mathworks.com/matlabcentral/fileexchange/43149-surface-reconstruction-from-gradient-fields--grad2surf-version-1-0?s_tid=prof_contriblnk>`_
+
