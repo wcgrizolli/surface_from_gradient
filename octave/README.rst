@@ -10,6 +10,10 @@ You can use the Octave GUI and simply run the test script "test_script_for_octav
 
 >>> octave:> run test_script_for_octave
 
+```
+Give the example
+```
+
 
 -----
 Notes
@@ -34,8 +38,8 @@ Well known problems:
 	
 	
 	
-	```
-	octave:> pkg install -forge control
-	octave:> pkg install -forge signal
-	octave:> pkg install -forge image
-	```
+```
+octave:> pkg install -forge control
+octave:> pkg install -forge signal
+octave:> pkg install -forge image
+```
