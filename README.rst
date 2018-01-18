@@ -29,4 +29,4 @@ The MATLAB codes are described here:
 Formating README.rst
 --------------------
 
-* `cheat-sheet for reStructuredText <http://docutils.sourceforge.net/docs/user/rst/quickref.html>_`
+* `cheat-sheet for reStructuredText <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_
