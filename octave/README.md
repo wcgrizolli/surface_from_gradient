@@ -14,7 +14,7 @@ octave:> run test_script_for_octave
 ```
 
 When using in a fresh isntall, first you need to install the following
-[pkgOctave] : [pkgImage], [pkgControl] and [pkgSignal]. To install the packages,
+[Octave packages]: [Image], [Control] and [Signal]. To install the packages,
 type in Octave::
 
 
@@ -37,9 +37,9 @@ Well-known problems:
  
   
 
-[octave]: https://www.gnu.org/software/octave/ "GNU Octave"
-[pkgOctave]: https://octave.sourceforge.io/packages.php "Octave packages"
-[pkgImage]: https://octave.sourceforge.io/image/index.html "Image"
-[pkgControl]: https://octave.sourceforge.io/control/index.html "Control"
-[pkgSignal]: https://octave.sourceforge.io/signal/index.html "Signal"
+[octave]: https://www.gnu.org/software/octave/ 
+[Octave packages]: https://octave.sourceforge.io/packages.php 
+[Image]: https://octave.sourceforge.io/image/index.html 
+[Control]: https://octave.sourceforge.io/control/index.html 
+[Signal]: https://octave.sourceforge.io/signal/index.html 
 
