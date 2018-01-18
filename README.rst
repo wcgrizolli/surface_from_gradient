@@ -39,38 +39,11 @@ Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 
 
 ======================================
-**Step 1 Syncing with gitlab**
+**Step 1 - Syncing with gitlab**
 ======================================
 
 *Requirements*: git, `GNU Octave`_, conda
 
 
 **NOTE**: You need to have ``git`` installed
-
-
-**Clone**
-----------
-
-::
-
- $> git clone https://gitlab.com/wcgrizolli/pythonWorkspace.git
-
- 
-**NOTE**: This is a private project. Your need to have a user at gitlab.com and to be added to the project to have access.
-
-
-**Update your local installation**
-----------------------------------
-
-::
-
- $> git pull
-
-
-**To make git to store your credentials**
------------------------------------------
-
-::
-
- $> git config credential.helper store
 
