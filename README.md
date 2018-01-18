@@ -40,7 +40,7 @@ Installation
 git clone https://gitlab.com/wcgrizolli/pythonWorkspace.git
 ```
  
-**NORE**: This is a private project. Your need to have a user at gitlab.com and to be added to the project to have access.
+:exclamation: **NOTE**: This is a private project. Your need to have a user at gitlab.com and to be added to the project to have access.
 
 
 #### Update your local installation
@@ -66,7 +66,7 @@ git config credential.helper store
 Creating conda enviroment
 
 
-**NORE**: You need to have ``anaconda`` or ``miniconda`` installed
+:exclamation: **NOTE**: You need to have ``anaconda`` or ``miniconda`` installed
 
 ```shell
 conda create -n ENV_NAME python=3.5 numpy=1.11  scipy=0.17 matplotlib=1.5 spyder=2.3.9 yes
@@ -74,9 +74,9 @@ conda create -n ENV_NAME python=3.5 numpy=1.11  scipy=0.17 matplotlib=1.5 spyder
 
 :warning: edit ``ENV_NAME``
 
--
-Soving dependencies with conda
--
+
+#### Soving dependencies with conda
+
 
 
 ```shell
@@ -123,10 +123,10 @@ By the end of the script, the directory tree should looks like::
 ```
 
 
-#### Step 4 - Running test files
+### Step 4 - Running test files
 
 
-**NORE** octave/README.rst
+:exclamation: **NOTE** octave/README.rst
 
 
 #### Formating README.rst
