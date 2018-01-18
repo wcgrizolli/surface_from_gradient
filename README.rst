@@ -12,9 +12,9 @@ The MATLAB codes are described here:
 
 1) Agrawal, A., Raskar, R., & Chellappa, R. (2006). What Is the Range of Surface Reconstructions from a Gradient Field? `LINK <https://doi.org/10.1007/11744023_45>`_.
 
-	- `Package author web page <http://www.cs.cmu.edu/~ILIM/projects/IM/aagrawal/>`_,
+  - `Package author web page <http://www.cs.cmu.edu/~ILIM/projects/IM/aagrawal/>`_,
 
-	- `MATLAB codes <http://www.cs.cmu.edu/~ILIM/projects/IM/aagrawal/eccv06/RangeofSurfaceReconstructions.html>`_
+  - `MATLAB codes <http://www.cs.cmu.edu/~ILIM/projects/IM/aagrawal/eccv06/RangeofSurfaceReconstructions.html>`_
 	
 	
 A sentence with links to Wikipedia_ and the `Linux kernel archive`_.
