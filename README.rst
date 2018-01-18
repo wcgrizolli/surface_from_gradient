@@ -130,7 +130,7 @@ By the end of the script, the directory tree should looks like::
 **Step 4 - Running test files**
 ================================
 
-**NOTE** ``octave/README.rst``
+**NOTE** octave/README.rst
 
 --------------------
 Formating README.rst
