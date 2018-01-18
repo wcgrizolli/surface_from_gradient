@@ -8,7 +8,9 @@ It is a good practice to test this script in Octave to be sure that your system 
 
 You can use the Octave GUI and simply run the test script "test_script_for_octave". Alternativally, you can use the command line by typing "octave" and then
 
->>> octave:> run test_script_for_octave
+::
+
+    octave:> run test_script_for_octave
 
 
 -----
