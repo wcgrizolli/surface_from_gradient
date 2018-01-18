@@ -89,8 +89,8 @@ conda install -c conda-forge oct2py
 
 
 The MATLAB scripts must be downloaded, unzipe and properly
-placed at the directory tree. The script ``install_mfiles.sh`` is supposed to
-take care of that (LINUX only). You must run:
+placed at the directory tree. The script [install_mfiles.sh](install_mfiles.sh)
+is supposed to take care of that (LINUX only). You must run:
 
 
 ```shell
