@@ -72,7 +72,7 @@ Creating conda enviroment
 conda create -n ENV_NAME python=3.5 numpy=1.11  scipy=0.17 matplotlib=1.5 spyder=2.3.9 yes
 ```
 
-.. WARNING:: edit ``ENV_NAME``
+:warning: edit ``ENV_NAME``
 
 -
 Soving dependencies with conda
