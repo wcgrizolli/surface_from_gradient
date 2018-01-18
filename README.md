@@ -129,10 +129,8 @@ By the end of the script, the directory tree should looks like::
 :exclamation: **NOTE** octave/README.rst
 
 
-#### Formating README.rst
+#### Formating README.md
 
-
-* `cheat-sheet for reStructuredText <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_
 
 * https://gitlab.com/help/user/markdown
 
