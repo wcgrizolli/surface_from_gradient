@@ -1,26 +1,19 @@
-======
-wavePy
-======
+=====================
+surface_from_gradient
+=====================
 
 
-`wavePy <https://github.com/wavepy/wavepy>`_ is Python library for data analyses of coherence and wavefront measurements at syncrotron beamlines. Currently it covers: single grating imaging, speckle tracking, scan of Talbot peaks for coherence.
+`surface_from_gradient <https://gitlab.com/wcgrizolli/surface_from_gradient>`_ is Python library to calculate a surface from the gradient data. It relies in `GNU Octave <https://www.gnu.org/software/octave/>`_ and `oct2py <http://blink1073.github.io/oct2py/>`_ library to run codes originally written in MATLAB©
 
 Documentation
 -------------
-* https://wavepy.readthedocs.org
+The MATLAB codes are described here:
 
-Credits
--------
+* ARTICLE 1: Agrawal, A., Raskar, R., & Chellappa, R. (2006). What Is
+the Range of Surface Reconstructions from a Gradient Field?
+`LINK<https://doi.org/10.1007/11744023_45>`_.
 
-We kindly request that you cite the following `articles <https://wavepy.readthedocs.io/en/latest/source/credits.html#citations>`_ 
-if you use wavePy.
-
-* List here the features.
-
-Contribute
-----------
-
-* Documentation: https://github.com/wavepy/wavepy/tree/master/doc
-* Issue Tracker: https://github.com/wavepy/wavepy/issues
-* Source Code: https://github.com/wavepy/wavepy
+* ARTICLE 2: Harker, M., & O’Leary, P. (2015). MATLAB toolbox for the
+regularized surface reconstruction from gradients.
+`LINK<https://doi.org/10.1117/12.2182827>`_.
 
