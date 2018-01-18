@@ -66,13 +66,13 @@ git config credential.helper store
 Creating conda enviroment
 
 
-:exclamation: **NOTE**: You need to have ``anaconda`` or ``miniconda`` installed
+:exclamation: **NOTE**: You need to have [conda] or [miniconda] installed
 
 ```shell
 conda create -n ENV_NAME python=3.5 numpy=1.11  scipy=0.17 matplotlib=1.5 spyder=2.3.9 yes
 ```
 
-:warning: edit ``ENV_NAME``
+:warning: **Attention**: Edit ``ENV_NAME``
 
 
 #### Soving dependencies with conda
@@ -145,3 +145,4 @@ By the end of the script, the directory tree should looks like::
 [oct2py]: http://blink1073.github.io/oct2py/ "oct2py"
 [conda]: https://conda.io/docs/index.html "conda"
 [git]: https://git-scm.com "git"
+[miniconda]: https://conda.io/miniconda.html "miniconda"
