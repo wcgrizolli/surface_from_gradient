@@ -28,6 +28,7 @@ if [ ! -d 'g2sAgrawal/AgrawalECCV06CodeMFiles' ]; then
 		wget http://www.cs.cmu.edu/~ILIM/projects/IM/aagrawal/eccv06/AgrawalECCV06CodeMFiles.zip
 	fi
 	unzip AgrawalECCV06CodeMFiles.zip -d g2sAgrawal/
+    mv g2sAgrawal/AgrawalECCV06CodeMFiles/MST_fromlabpc/test.m g2sAgrawal/AgrawalECCV06CodeMFiles/MST_fromlabpc/test_1.m  # the filename test.m causes a warning and therefore we rename it
 # 	rm AgrawalECCV06CodeMFiles.zip 
 else
 	echo 'ERROR: Directory g2sAgrawal/AgrawalECCV06CodeMFiles Exists. Installation skipped.' >&2
