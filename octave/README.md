@@ -1,4 +1,4 @@
- 
+
 Test Scripts for Octave
 =======================
 
@@ -33,13 +33,17 @@ Well-known problems:
 
 1) Tested with Octave 3.8 and 4.X.
 
-2) Octave version < 4 is not ploting the graphs. Use the plot flag in the script.
- 
-  
+2) Octave version < 4 is only plotting when using the gnuplot backend. Include
+the command ```graphics_toolkit gnuplot``` in the m-file.
 
-[octave]: https://www.gnu.org/software/octave/ 
-[Octave packages]: https://octave.sourceforge.io/packages.php 
-[Image]: https://octave.sourceforge.io/image/index.html 
-[Control]: https://octave.sourceforge.io/control/index.html 
-[Signal]: https://octave.sourceforge.io/signal/index.html 
+3) You can run ```test_script_for_octave``` with oct2py, but without the plots.
+This is done in `test_oct2py.py`. Also, in the end it generates some
+error messages, but the results saved to an ascii file seems to be ok.
+
+
+[octave]: https://www.gnu.org/software/octave/
+[Octave packages]: https://octave.sourceforge.io/packages.php
+[Image]: https://octave.sourceforge.io/image/index.html
+[Control]: https://octave.sourceforge.io/control/index.html
+[Signal]: https://octave.sourceforge.io/signal/index.html
 
