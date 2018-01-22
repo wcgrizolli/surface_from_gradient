@@ -44,7 +44,7 @@ def g2sSpectral(g_x, g_y, N=3, mask=None, basisFns='cosine'):
     octave.push('N', N)
 
     if mask is None:
-        mask = [g_x.shape[1]//10, g_x.shape[0]//10]
+        mask = [g_x.shape[1]//4, g_x.shape[0]//4]
 
     octave.push('Mask', mask)
 
