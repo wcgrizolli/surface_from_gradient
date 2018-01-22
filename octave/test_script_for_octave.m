@@ -17,12 +17,14 @@ clear all;close all;clc;
 
 restoredefaultpath();
 addpath('../g2sAgrawal/AgrawalECCV06CodeMFiles/');
-addpath('../g2sHarker/grad2Surf/');
-addpath('../g2sHarker/DOPBox/');
+addpath(genpath('../g2sHarker/grad2Surf/'));
+addpath(genpath('../g2sHarker/DOPBox/'));
+addpath('../utils/');
 
-mkdir output
+
 
 %graphics_toolkit fltk
+graphics_toolkit gnuplot
 pkg load signal
 pkg load image
 
@@ -37,7 +39,7 @@ ADD_NOISE = 0
 NOISE_LEVEL = 5
 RMSE_TH = 0.01
 SAVE_ASC = 1
-PLOT_ALL = 0 % Plot is not working in octave < 4.0
+PLOT_ALL = 1 % Plot is not working in octave < 4.0
 SAVE_PLOT = 0
 OUT_PREFIX = 'output/fermidirac_5pct_noise_'
 
@@ -190,9 +192,9 @@ deg = 0 ;
 N = 3;
 Z0 = zeros(H, W) ;
 tic
-%[ r_tik, Res ] = g2sTikhonov( gx, gy, linspace(1,H,H)', linspace(1,W,W)', N, lambda, deg, Z0 ) ;
-r_tik = 0;
-Res = 0;
+[ r_tik, Res ] = g2sTikhonov( gx, gy, linspace(1,H,H)', linspace(1,W,W)', N, lambda, deg, Z0 ) ;
+%r_tik = 0;
+%Res = 0;
 
 alg_7_toc = toc;
 
@@ -207,6 +209,8 @@ disp(sprintf('Algorithm VI : %.3g s', alg_6_toc))
 disp(sprintf('Algorithm VII: %.3g s', alg_7_toc))
 
 if(SAVE_ASC)
+
+  mkdir output
 
   save('-ascii', [OUT_PREFIX 'algorithm_0.txt'], 'im');
   save('-ascii', [OUT_PREFIX 'algorithm_1.txt'], 'r_ls');
