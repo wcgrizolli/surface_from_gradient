@@ -1,4 +1,3 @@
-
 %=========================================================
 % Matlab code for ECCV 2006 paper
 % Copyright: Amit Agrawal, 2006
@@ -17,9 +16,9 @@
 clear all;close all;clc;
 
 restoredefaultpath();
-addpath(genpath('../g2sAgrawal/AgrawalECCV06CodeMFiles/'));
-addpath(genpath('../g2sHarker/grad2Surf/'));
-addpath(genpath('../g2sHarker/DOPBox/'));
+addpath('../g2sAgrawal/AgrawalECCV06CodeMFiles/');
+addpath('../g2sHarker/grad2Surf/');
+addpath('../g2sHarker/DOPBox/');
 
 mkdir output
 
@@ -34,7 +33,7 @@ global maxZ;
 
 
 ADD_OUTLIERS = 0
-ADD_NOISE = 1
+ADD_NOISE = 0
 NOISE_LEVEL = 5
 RMSE_TH = 0.01
 SAVE_ASC = 1
@@ -191,7 +190,10 @@ deg = 0 ;
 N = 3;
 Z0 = zeros(H, W) ;
 tic
-[ r_tik, Res ] = g2sTikhonov( gx, gy, linspace(1,H,H)', linspace(1,W,W)', N, lambda, deg, Z0 ) ;
+%[ r_tik, Res ] = g2sTikhonov( gx, gy, linspace(1,H,H)', linspace(1,W,W)', N, lambda, deg, Z0 ) ;
+r_tik = 0;
+Res = 0;
+
 alg_7_toc = toc;
 
 close all;
