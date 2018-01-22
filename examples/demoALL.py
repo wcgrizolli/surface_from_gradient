@@ -5,8 +5,8 @@
 """
 
 # %%
-import matplotlib
-matplotlib.use('Agg')
+#import matplotlib
+#matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
@@ -45,8 +45,8 @@ plotHist = False
 noiseFlag = False
 noiseLevel = 5.0  # in percents
 plotSurfsFlag = True
-plotErrorsFlag = False
-plotErrorsGradFlag = False
+plotErrorsFlag = True
+plotErrorsGradFlag = True
 
 from itertools import count
 _count_fig = count()
