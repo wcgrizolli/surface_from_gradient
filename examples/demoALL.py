@@ -5,8 +5,8 @@
 """
 
 # %%
-#import matplotlib
-#matplotlib.use('Agg')
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
@@ -85,7 +85,7 @@ def _err(res, model):
                   r' $\mu=${:.4f}'.format(np.mean(array2plot)))
 
         plt.savefig(unique_fname())
-        plt.show()
+        plt.close()
 
     return np.mean(array2plot)
 
@@ -105,7 +105,7 @@ def _rerr(res, model):
                   ' $\mu=${:.4f}'.format(np.mean(array2plot)))
 
         plt.savefig(unique_fname())
-        plt.show()
+        plt.close()
 
     return np.mean(array2plot)
 
@@ -113,8 +113,9 @@ def _rerr(res, model):
 
 # some number nx and ny crash the program.
 # test in newer octave. 200x200 works
-nx = 101
-ny = 101
+# WG: I think it must be multiple of 4 to match the mask of g2s
+nx = 500
+ny = 500
 
 radius = nx // 15
 im = sample_fermi_diracs(nx, ny, radius)
@@ -137,7 +138,7 @@ if plotInputs:
                  fontsize=18, weight='bold')
     plt.tight_layout()
     plt.savefig(unique_fname())
-    plt.show()
+    plt.close()
 
     for [plotThis, titleStr] in zip([im, g_x, g_y], ['im', 'g_x', 'g_y']):
 
@@ -149,7 +150,7 @@ if plotInputs:
                         cmap='jet', linewidth=0.1)
         plt.tight_layout()
         plt.savefig(unique_fname())
-        plt.show()
+        plt.close()
 
 if noiseFlag:
     np.random.seed(23153493)
@@ -171,7 +172,7 @@ if (noiseFlag and plotInputs):
 
     plt.suptitle('Gradients, {:.1f} % noise'.format(noiseLevel),
                  fontsize=18, weight='bold')
-    plt.show()
+    plt.close()
 
     for [plotThis, titleStr] in zip([g_x, g_y], ['g_x', 'g_y']):
 
@@ -181,13 +182,13 @@ if (noiseFlag and plotInputs):
                         rstride=nx//100, cstride=ny//100,
                         cmap='jet', linewidth=0.1)
         plt.title('Noise added')
-        plt.show()
+        plt.close()
         plt.tight_layout()
         plt.savefig(unique_fname())
-        plt.show()
+        plt.close()
 
 
-plt.show(block=True)
+# plt.show(block=True)
 
 # %%
 
@@ -195,83 +196,89 @@ all_res = []
 all_toc = []
 all_titles = []
 
-tic = time.time()
-res = g2sAgrawal.poisson_solver_function_neumann(g_x, g_y)
-toc = time.time() - tic
-all_res.append(res)
-all_toc.append(toc)
-all_titles.append('poisson_solver_function_neumann')
+list_of_algorithms = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+#list_of_algorithms = [1, 2, 6, 7, 8, 9, 10]
 
-tic = time.time()
-res = g2sAgrawal.frankotchellappa(g_x, g_y)
-toc = time.time() - tic
-all_res.append(res)
-all_toc.append(toc)
-all_titles.append('frankotchellappa')
+if 1 in list_of_algorithms:
+    tic = time.time()
+    res = g2sAgrawal.poisson_solver_function_neumann(g_x, g_y)
+    toc = time.time() - tic
+    all_res.append(res)
+    all_toc.append(toc)
+    all_titles.append('I - poisson_solver_function_neumann')
 
-tic = time.time()
-res = g2sAgrawal.M_estimator(g_x, g_y)
-toc = time.time() - tic
-all_res.append(res)
-all_toc.append(toc)
-all_titles.append('M_estimator')
+if 2 in list_of_algorithms:
+    tic = time.time()
+    res = g2sAgrawal.frankotchellappa(g_x, g_y)
+    toc = time.time() - tic
+    all_res.append(res)
+    all_toc.append(toc)
+    all_titles.append('II - frankotchellappa')
 
-tic = time.time()
-res = g2sAgrawal.halfquadractic(g_x, g_y)
-toc = time.time() - tic
-all_res.append(res)
-all_toc.append(toc)
-all_titles.append('halfquadractic')
+if 3 in list_of_algorithms:
+    tic = time.time()
+    res = g2sAgrawal.M_estimator(g_x, g_y)
+    toc = time.time() - tic
+    all_res.append(res)
+    all_toc.append(toc)
+    all_titles.append('III - M_estimator')
 
-tic = time.time()
-res = g2sAgrawal.affineTransformation(g_x, g_y)
-toc = time.time() - tic
-all_res.append(res)
-all_toc.append(toc)
-all_titles.append('affineTransformation')
+if 4 in list_of_algorithms:
+    tic = time.time()
+    res = g2sAgrawal.halfquadractic(g_x, g_y)
+    toc = time.time() - tic
+    all_res.append(res)
+    all_toc.append(toc)
+    all_titles.append('IV - halfquadractic')
 
-tic = time.time()
-res = g2sHarker.g2s(g_x, g_y)
-toc = time.time() - tic
-all_res.append(res)
-all_toc.append(toc)
-all_titles.append('g2s')
+if 5 in list_of_algorithms:
+    tic = time.time()
+    res = g2sAgrawal.affineTransformation(g_x, g_y)
+    toc = time.time() - tic
+    all_res.append(res)
+    all_toc.append(toc)
+    all_titles.append('V - affineTransformation')
 
-tic = time.time()
-res = g2sHarker.g2sSpectral(g_x, g_y, basisFns='poly')
-toc = time.time() - tic
-all_res.append(res)
-all_toc.append(toc)
-all_titles.append('g2sSpectral')
+if 6 in list_of_algorithms:
+    tic = time.time()
+    res = g2sHarker.g2s(g_x, g_y)
+    toc = time.time() - tic
+    all_res.append(res)
+    all_toc.append(toc)
+    all_titles.append('VI - g2s')
 
-tic = time.time()
-res = g2sHarker.g2sDirichlet(g_x, g_y)
-toc = time.time() - tic
-all_res.append(res)
-all_toc.append(toc)
-all_titles.append('g2sDirichlet')
+if 7 in list_of_algorithms:
+    tic = time.time()
+    res = g2sHarker.g2sSpectral(g_x, g_y, basisFns='poly')
+    toc = time.time() - tic
+    all_res.append(res)
+    all_toc.append(toc)
+    all_titles.append('VII - g2sSpectral')
 
-tic = time.time()
-res = g2sHarker.g2sTikhonov(g_x, g_y)
-toc = time.time() - tic
-all_res.append(res)
-all_toc.append(toc)
-all_titles.append('g2sTikhonov')
+if 8 in list_of_algorithms:
+    tic = time.time()
+    res = g2sHarker.g2sDirichlet(g_x, g_y)
+    toc = time.time() - tic
+    all_res.append(res)
+    all_toc.append(toc)
+    all_titles.append('VIII - g2sDirichlet')
 
-tic = time.time()
-res = g2sHarker.g2sTikhonovStd(g_x, g_y)
-toc = time.time() - tic
-all_res.append(res)
-all_toc.append(toc)
-all_titles.append('g2sTikhonovStd')
+if 9 in list_of_algorithms:
+    tic = time.time()
+    res = g2sHarker.g2sTikhonov(g_x, g_y)
+    toc = time.time() - tic
+    all_res.append(res)
+    all_toc.append(toc)
+    all_titles.append('IX - g2sTikhonov')
 
+if 10 in list_of_algorithms:
+    tic = time.time()
+    res = g2sHarker.g2sTikhonovStd(g_x, g_y)
+    toc = time.time() - tic
+    all_res.append(res)
+    all_toc.append(toc)
+    all_titles.append('X - g2sTikhonovStd')
 
-# %%
-print("--- RACE RESULTS")
-
-for i, toc in enumerate(all_toc):
-    print("--- Algorithm {:2d}, ".format(i + 1, toc) +
-          '{:<35s}'.format(all_titles[i]) + ":\t {:.4f} seconds ---".format(toc))
 
 # %%
 
@@ -289,10 +296,10 @@ if plotSurfsFlag:
         plt.title(all_titles[i])
         plt.tight_layout()
         plt.savefig(unique_fname())
-        plt.show()
+        plt.close()
 
 
-plt.show(block=True)
+# plt.show(block=True)
 
 # %%
 
@@ -320,15 +327,12 @@ if plotErrorsFlag:
         plt.title(all_titles[i] + str_err)
         plt.tight_layout()
         plt.savefig(unique_fname())
-        plt.show()
-
-    for i, _ in enumerate(all_err):
-        print("--- Algorithm {:2d}, ".format(i + 1, toc) +
-              '{:<35s}'.format(all_titles[i]) +
-              ' errors:\t {:.4f},\t {:.4f}'.format(i, all_err[i], all_rerr[i]))
+        plt.close()
 
 
-plt.show(block=True)
+
+
+# plt.show(block=True)
 
 # %%
 
@@ -343,7 +347,7 @@ if plotErrorsGradFlag:
 
     print('Plot Gradient Errors')
 
-    for i, res in enumerate(all_res[:3]):
+    for i, res in enumerate(all_res):
 
         print('Plot Gradient Errors: ' + all_titles[i])
 
@@ -368,7 +372,7 @@ if plotErrorsGradFlag:
         plt.title(all_titles[i] + str_err_x)
         plt.tight_layout()
         plt.savefig(unique_fname())
-        plt.show()
+        plt.close()
 
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
@@ -379,15 +383,38 @@ if plotErrorsGradFlag:
         plt.title(all_titles[i] + str_err_y)
         plt.tight_layout()
         plt.savefig(unique_fname())
-        plt.show()
-        plt.show(block=True)
+        plt.close()
+        # plt.show(block=True)
+
 
 # %%
-    for i, _ in enumerate(all_err_x):
-        print("--- Algorithm {:2d}, ".format(i + 1, toc) +
-              '{:<35s}'.format(all_titles[i]) +
-              ' errors x:\t {:.4f},\t {:.4f}'.format(i, all_err_x[i], all_rerr_x[i]))
+print("--- RACE RESULTS")
 
-        print("--- Algorithm {:2d}, ".format(i + 1, toc) +
-              '{:<35s}'.format(all_titles[i]) +
-              ' errors y:\t {:.4f},\t {:.4f}'.format(i, all_err_y[i], all_rerr_y[i]))
+for i, toc in enumerate(all_toc):
+    print("--- Algorithm " +
+          '{:<40}'.format(all_titles[i]) + ":{:5.4f} seconds ---".format(toc))
+
+
+# %%
+print("--- ERRORS RESULTS - Model")
+for i, _ in enumerate(all_err):
+    print("--- Algorithm " +
+          '{:<40s}'.format(all_titles[i]) +
+          ' errors:\t {:.4g},\t {:.4g}'.format(all_err[i], all_rerr[i]))
+
+
+# %%
+
+print("--- ERRORS RESULTS - GRADIENT")
+
+
+for i, _ in enumerate(all_err_x):
+    print("--- Algorithm " +
+          '{:<35s}'.format(all_titles[i]) +
+          ' errors x:\t {:.4g},\t {:.4g}'.format(all_err_x[i], all_rerr_x[i]))
+
+    print("--- Algorithm " +
+          '{:<35s}'.format(all_titles[i]) +
+          ' errors y:\t {:.4g},\t {:.4g}'.format(all_err_y[i], all_rerr_y[i]))
+
+print('Finished!')
