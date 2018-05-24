@@ -20,23 +20,15 @@ if $MISSINGPROGRAM; then
 	exit 1
 fi
 
-
-
-
 if [ ! -d 'g2sAgrawal/AgrawalECCV06CodeMFiles' ]; then
 	if [ ! -f 'AgrawalECCV06CodeMFiles.zip' ]; then
 		wget http://www.cs.cmu.edu/~ILIM/projects/IM/aagrawal/eccv06/AgrawalECCV06CodeMFiles.zip
 	fi
 	unzip AgrawalECCV06CodeMFiles.zip -d g2sAgrawal/
     mv g2sAgrawal/AgrawalECCV06CodeMFiles/MST_fromlabpc/test.m g2sAgrawal/AgrawalECCV06CodeMFiles/MST_fromlabpc/test_1.m  # the filename test.m causes a warning and therefore we rename it
-# 	rm AgrawalECCV06CodeMFiles.zip 
 else
 	echo 'ERROR: Directory g2sAgrawal/AgrawalECCV06CodeMFiles Exists. Installation skipped.' >&2
 fi
-
-
-
-
 
 if [ ! -d 'g2sHarker/grad2Surf' ]; then
 
@@ -50,8 +42,8 @@ if [ ! -d 'g2sHarker/grad2Surf' ]; then
 		fi
 		mv zip grad2SurfV1-0.zip
 	fi
+	mkdir g2sHarker
 	unzip grad2SurfV1-0.zip -d g2sHarker/grad2Surf
-# 	rm grad2SurfV1-0.zip
 else
 	echo 'ERROR: Directory g2sHarker/grad2Surf Exists. Installation skipped.' >&2
 fi
@@ -70,16 +62,25 @@ if [ ! -d 'g2sHarker/DOPBox/' ]; then
 	fi
 	
 	unzip DOPBoxV1-8.zip -d g2sHarker/DOPBox
-# 	rm DOPBoxV1-8.zip
 else
 	echo 'ERROR: Directory g2sHarker/DOPBox/ Exists. Installation skipped.' >&2
 fi
 
 
+if ls *zip >/dev/null 2>&1; then
+    # there are zip files
 
+    echo "### Remove zip files?"
+    select yn in "Yes" "No"; do
+        echo "Enter the option number and ENTER"
+        case $yn in
+            Yes ) rm -v AgrawalECCV06CodeMFiles.zip grad2SurfV1-0.zip DOPBoxV1-8.zip; break;;
+            No ) echo "MESSAGE: zip files are not removed."; break;;
+        esac
+    done
+fi
 
-
-
+echo "Done"
 
 
 
