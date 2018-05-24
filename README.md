@@ -25,6 +25,12 @@ The original MATLAB codes are described here:
 
 # Installation
 
+:warning: **Attention**: Only tested in Linux
+
+Experient users can simply download the zip file from github and use it as any python library. Please have a look at the examples.
+
+Below is described the step to use git and conda to properly setup an enviroment and solve dependencies
+
 ### Step 1 - Syncing with github
 
 
@@ -60,13 +66,15 @@ git config credential.helper store
 
 
 
-Creating conda enviroment
+#### Creating conda enviroment
 
 
 :exclamation: **NOTE**: You need to have [conda] or [miniconda] installed
 
+:exclamation: **NOTE**: You only need to do this whe installing the first time.
+
 ```shell
-conda create -n ENV_NAME python=3.5 numpy=1.11  scipy=0.17 matplotlib=1.5 spyder=2.3.9 yes
+conda create -n ENV_NAME python=3.5 numpy=1.11  scipy=0.17 matplotlib=1.5 spyder=2.3.9 --yes
 ```
 
 :warning: **Attention**: Edit ``ENV_NAME``
@@ -77,10 +85,19 @@ conda create -n ENV_NAME python=3.5 numpy=1.11  scipy=0.17 matplotlib=1.5 spyder
 
 
 ```shell
+source activate ENV_NAME
 conda install -c conda-forge oct2py
-
 ```
 
+#### Running spyder insider conda enviroment
+
+In order to use the correct version of python, numpy, etc, you need to run spyder inside a spyder enviroment
+
+
+```shell
+source activate ENV_NAME
+spyder
+```
 
 ### Step 3 - Installing the MATLAB files
 
@@ -120,11 +137,15 @@ By the end of the script, the directory tree should looks like::
 ```
 
 
-### Step 4 - Running test files
+### Step 4 - Testing that you can run Octave
 
 
-:exclamation: **NOTE** octave/README.rst
+:exclamation: Read octave/README.rst
 
+
+### Step 5 - Running
+
+Load the ENV_NAME conda enviroment, open spyder, load one of the examples, run.
 
 #### Formating README.md
 
