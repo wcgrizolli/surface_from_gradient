@@ -16,7 +16,7 @@ The original MATLAB codes are described here:
 
 - [MATLAB codes](http://www.cs.cmu.edu/~ILIM/projects/IM/aagrawal/eccv06/RangeofSurfaceReconstructions.html)
 
-2) [Harker, M., & O’Leary, P. (2015). MATLAB toolbox for the regularized surface reconstruction from gradients.](<https://doi.org/10.1117/12.2182827)
+2) [Harker, M., & O’Leary, P. (2015). MATLAB toolbox for the regularized surface reconstruction from gradients.](https://doi.org/10.1117/12.2182827)
 
 - [MATLAB codes](https://www.mathworks.com/matlabcentral/fileexchange/43149-surface-reconstruction-from-gradient-fieldsgrad2surf-version-1-0?s_tid=prof_contriblnk)
 
@@ -25,7 +25,7 @@ The original MATLAB codes are described here:
 
 # Installation
 
-### Step 1 - Syncing with gitlab
+### Step 1 - Syncing with github
 
 
 **Requirements**: [git], [conda], [octave]
@@ -34,10 +34,10 @@ The original MATLAB codes are described here:
 #### Clone
 
 ```shell
-git clone https://gitlab.com/wcgrizolli/pythonWorkspace.git
+git clone https://github.com/wcgrizolli/pythonWorkspace.git
 ```
  
-:exclamation: **NOTE**: This is a private project. Your need to have a user at gitlab.com and to be added to the project to have access.
+:exclamation: **NOTE**: This is a private project. Your need to have a user at github.com and to be added to the project to have access.
 
 
 #### Update your local installation
@@ -129,7 +129,7 @@ By the end of the script, the directory tree should looks like::
 #### Formating README.md
 
 
-* https://gitlab.com/help/user/markdown
+* https://guides.github.com/features/mastering-markdown/
 
 
 
