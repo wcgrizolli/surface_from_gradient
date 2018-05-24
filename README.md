@@ -139,7 +139,7 @@ By the end of the script, the directory tree should looks like::
 ### Step 4 - Testing that you can run Octave
 
 
-:exclamation: Read octave/README.rst
+:exclamation: Read [octave/README.rst](octave/README.rst) 
 
 
 ### Step 5 - Running
