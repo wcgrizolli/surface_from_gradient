@@ -4,7 +4,7 @@
 
 [surface_from_gradient] is Python library to calculate a surface from the
 gradient data. It relies in [octave] and [oct2py] library to run codes
-originally written in `MATLAB`©
+originally written in `MATLAB©`
 
 ## Documentation
 
@@ -25,11 +25,11 @@ The original `MATLAB` codes are described here:
 
 # Installation
 
-:warning: **Attention**: Only tested in Linux
+:warning: **Attention**: Only tested in Linux :penguin:
 
 Experient users can simply download the zip file from github and use it as any `python` library. Please have a look at the examples.
 
-Below is described the step to use git and conda to properly setup an enviroment and solve dependencies
+Below is described the step to use `git` and `conda` to properly setup an enviroment and solve dependencies
 
 ### Step 1 - Syncing with github
 
@@ -43,8 +43,7 @@ Below is described the step to use git and conda to properly setup an enviroment
 git clone https://github.com/wcgrizolli/pythonWorkspace.git
 ```
  
-:exclamation: **NOTE**: This is a private project. Your need to have a user at github.com and to be added to the project to have access.
-
+:octocat:
 
 #### Update your local installation
 
@@ -53,7 +52,7 @@ git clone https://github.com/wcgrizolli/pythonWorkspace.git
 git pull
 ```
 
-#### Make git to store your credentials
+#### Make `git` to store your credentials
 
 
 ```shell
