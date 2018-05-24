@@ -9,10 +9,11 @@ import matplotlib
 #matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+import itertools
 
 import numpy as np
 
-
+import wavepy.grating_interferometry as wgi
 
 import time
 import sys
@@ -26,14 +27,6 @@ import g2sAgrawal
 g2sAgrawal.octave.eval("addpath(genpath('../g2sAgrawal/AgrawalECCV06CodeMFiles/'));")
 
 
-
-sys.path.append('../g2sHarker')
-import g2sHarker
-# In the following line you need to add the MATLAB folder to the octave path
-# Because it has nothing to do with the PYTHONPATH, you better add the absolute path
-g2sHarker.octave.eval("addpath(genpath('../g2sHarker/grad2Surf/'));")
-g2sHarker.octave.eval("addpath(genpath('../g2sHarker/DOPBox/'));")
-
 sys.path.append('../utils') # I only need this to generate the source
 from sample_fermi_diracs import *
 
@@ -43,7 +36,6 @@ from sample_fermi_diracs import *
 plotInputs = True
 plotHist = False
 noiseFlag = True
-noiseLevel = 1.0  # in percents
 plotSurfsFlag = True
 plotErrorsFlag = True
 plotErrorsGradFlag = True
@@ -117,29 +109,26 @@ def _rerr(res, model):
 nx = 256
 ny = 256
 
-radius = nx // 15
-im = sample_fermi_diracs(nx, ny, radius)
-yy, xx = np.mgrid[0:ny, 0:nx]
-g_x, g_y = _grad(im)
+all_res = []
+all_toc = []
+all_titles = []
 
-# %%
-if plotInputs:
-    plt.figure(figsize=(14, 6))
-    plt.subplot(121)
-    plt.imshow(g_x, cmap='RdGy')
-    plt.colorbar(shrink=0.5)
-    plt.title('g_x', fontsize=18, weight='bold')
+n_algorithms = [2]
 
-    plt.subplot(122)
-    plt.imshow(g_y, cmap='RdGy')
-    plt.colorbar(shrink=0.5)
-    plt.title('g_y', fontsize=18, weight='bold')
+noiseLevel = .010  # in percents
 
-    plt.suptitle('Gradients, No noise',
-                 fontsize=18, weight='bold')
-    plt.tight_layout()
-    plt.savefig(unique_fname())
-    plt.close()
+for sigma, noise in itertools.product([0.1, 1., 10.],[0.01]):
+
+    im = single_fermi_dirac(nx, ny, sigma, radius = nx//4)
+    yy, xx = np.mgrid[0:ny, 0:nx]
+    g_x, g_y = _grad(im)
+
+
+    if noiseFlag:
+        np.random.seed(23153493)
+        g_x += noiseLevel*np.ptp(g_x)/100*np.random.randn(ny, nx)
+        np.random.seed(64709745)
+        g_y += noiseLevel*np.ptp(g_y)/100*np.random.randn(ny, nx)
 
     for [plotThis, titleStr] in zip([im, g_x, g_y], ['im', 'g_x', 'g_y']):
 
@@ -152,157 +141,118 @@ if plotInputs:
         plt.tight_layout()
         plt.savefig(unique_fname())
         plt.close()
-# %%
-if noiseFlag:
-    np.random.seed(23153493)
-    g_x += noiseLevel*np.ptp(g_x)/100*np.random.randn(ny, nx)
-    np.random.seed(64709745)
-    g_y += noiseLevel*np.ptp(g_y)/100*np.random.randn(ny, nx)
 
+    if (noiseFlag and plotInputs):
+        plt.figure(figsize=(14, 6))
+        plt.subplot(121)
+        plt.imshow(g_x, cmap='RdGy')
+        plt.colorbar(shrink=0.5)
+        plt.title('g_x', fontsize=18, weight='bold')
 
-if (noiseFlag and plotInputs):
-    plt.figure(figsize=(14, 6))
-    plt.subplot(121)
-    plt.imshow(g_x, cmap='RdGy')
-    plt.colorbar(shrink=0.5)
-    plt.title('g_x', fontsize=18, weight='bold')
+        plt.subplot(122)
+        plt.imshow(g_y, cmap='RdGy')
+        plt.colorbar(shrink=0.5)
+        plt.title('g_y', fontsize=18, weight='bold')
 
-    plt.subplot(122)
-    plt.imshow(g_y, cmap='RdGy')
-    plt.colorbar(shrink=0.5)
-    plt.title('g_y', fontsize=18, weight='bold')
-
-    plt.suptitle('Gradients, {:.1f} % noise'.format(noiseLevel),
-                 fontsize=18, weight='bold')
-    plt.tight_layout()
-    plt.savefig(unique_fname())
-    plt.close()
-
-    for [plotThis, titleStr] in zip([g_x, g_y], ['g_x', 'g_y']):
-
-        fig = plt.figure()
-        ax = fig.add_subplot(111, projection='3d')
-        ax.plot_surface(xx, yy, plotThis,
-                        rstride=nx//100, cstride=ny//100,
-                        cmap='viridis', linewidth=0.1)
-        plt.title('Noise added')
+        plt.suptitle('Gradients, {:.1f} % noise'.format(noiseLevel),
+                     fontsize=18, weight='bold')
         plt.tight_layout()
         plt.savefig(unique_fname())
         plt.close()
 
+    if 1 in n_algorithms:
+        tic = time.time()
+        res = g2sAgrawal.poisson_solver_function_neumann(g_x, g_y)
+        toc = time.time() - tic
+        all_res.append(res)
+        all_toc.append(toc)
+        all_titles.append('sigma={:.3f}, noise={:.3f}, I - poisson_solver_function_neumann'.format(sigma, noiseLevel))
 
-# plt.show(block=True)
+    elif 2 in n_algorithms:
+        tic = time.time()
+        #        res = g2sAgrawal.frankotchellappa(g_x, g_y)
 
-# %%
+        res, _ = wgi.dpc_integration(g_x, g_y, [1, 1], idx4crop=[0, -1, 0, -1])
+        toc = time.time() - tic
+        all_res.append(res)
+        all_toc.append(toc)
+        all_titles.append('sigma={:.3f}, noise={:.3f}, II - frankotchellappa'.format(sigma, noiseLevel))
 
-all_res = []
-all_toc = []
-all_titles = []
+    elif 3 in n_algorithms:
+        tic = time.time()
+        res = g2sAgrawal.M_estimator(g_x, g_y)
+        toc = time.time() - tic
+        all_res.append(res)
+        all_toc.append(toc)
+        all_titles.append('sigma={:.3f}, noise={:.3f}, III - M_estimator'.format(sigma, noiseLevel))
 
-list_of_algorithms = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-#list_of_algorithms = [1, 2, 6, 7, 8, 9, 10]
+    elif 4 in n_algorithms:
+        tic = time.time()
+        res = g2sAgrawal.halfquadractic(g_x, g_y)
+        toc = time.time() - tic
+        all_res.append(res)
+        all_toc.append(toc)
+        all_titles.append('sigma={:.3f}, noise={:.3f}, IV - halfquadractic'.format(sigma, noiseLevel))
 
-if 1 in list_of_algorithms:
-    tic = time.time()
-    res = g2sAgrawal.poisson_solver_function_neumann(g_x, g_y)
-    toc = time.time() - tic
-    all_res.append(res)
-    all_toc.append(toc)
-    all_titles.append('I - poisson_solver_function_neumann')
+    elif 5 in n_algorithms:
+        tic = time.time()
+        res = g2sAgrawal.affineTransformation(g_x, g_y)
+        toc = time.time() - tic
+        all_res.append(res)
+        all_toc.append(toc)
+        all_titles.append('sigma={:.3f}, noise={:.3f}, V - affineTransformation'.format(sigma, noiseLevel))
 
-if 2 in list_of_algorithms:
-    tic = time.time()
-    res = g2sAgrawal.frankotchellappa(g_x, g_y)
-    toc = time.time() - tic
-    all_res.append(res)
-    all_toc.append(toc)
-    all_titles.append('II - frankotchellappa')
+    elif 6 in n_algorithms:
+        tic = time.time()
+        res = g2sHarker.g2s(g_x, g_y)
+        toc = time.time() - tic
+        all_res.append(res)
+        all_toc.append(toc)
+        all_titles.append('sigma={:.3f}, noise={:.3f}, VI - g2s'.format(sigma, noiseLevel))
 
-if 3 in list_of_algorithms:
-    tic = time.time()
-    res = g2sAgrawal.M_estimator(g_x, g_y)
-    toc = time.time() - tic
-    all_res.append(res)
-    all_toc.append(toc)
-    all_titles.append('III - M_estimator')
+    elif 7 in n_algorithms:
+        tic = time.time()
+        res = g2sHarker.g2sSpectral(g_x, g_y, basisFns='poly'.format(sigma, noiseLevel))
+        toc = time.time() - tic
+        all_res.append(res)
+        all_toc.append(toc)
+        all_titles.append('sigma={:.3f}, noise={:.3f}, VII - g2sSpectral'.format(sigma, noiseLevel))
 
-if 4 in list_of_algorithms:
-    tic = time.time()
-    res = g2sAgrawal.halfquadractic(g_x, g_y)
-    toc = time.time() - tic
-    all_res.append(res)
-    all_toc.append(toc)
-    all_titles.append('IV - halfquadractic')
+    elif 8 in n_algorithms:
+        tic = time.time()
+        res = g2sHarker.g2sDirichlet(g_x, g_y)
+        toc = time.time() - tic
+        all_res.append(res)
+        all_toc.append(toc)
+        all_titles.append('sigma={:.3f}, noise={:.3f}, VIII - g2sDirichlet'.format(sigma, noiseLevel))
 
-if 5 in list_of_algorithms:
-    tic = time.time()
-    res = g2sAgrawal.affineTransformation(g_x, g_y)
-    toc = time.time() - tic
-    all_res.append(res)
-    all_toc.append(toc)
-    all_titles.append('V - affineTransformation')
+    elif 9 in n_algorithms:
+        tic = time.time()
+        res = g2sHarker.g2sTikhonov(g_x, g_y)
+        toc = time.time() - tic
+        all_res.append(res)
+        all_toc.append(toc)
+        all_titles.append('sigma={:.3f}, noise={:.3f}, IX - g2sTikhonov'.format(sigma, noiseLevel))
 
-if 6 in list_of_algorithms:
-    tic = time.time()
-    res = g2sHarker.g2s(g_x, g_y)
-    toc = time.time() - tic
-    all_res.append(res)
-    all_toc.append(toc)
-    all_titles.append('VI - g2s')
+    elif 10 in n_algorithms:
+        tic = time.time()
+        res = g2sHarker.g2sTikhonovStd(g_x, g_y)
+        toc = time.time() - tic
+        all_res.append(res)
+        all_toc.append(toc)
+        all_titles.append('sigma={:.3f}, noise={:.3f}, X - g2sTikhonovStd'.format(sigma, noiseLevel))
 
-if 7 in list_of_algorithms:
-    tic = time.time()
-    res = g2sHarker.g2sSpectral(g_x, g_y, basisFns='poly')
-    toc = time.time() - tic
-    all_res.append(res)
-    all_toc.append(toc)
-    all_titles.append('VII - g2sSpectral')
-
-if 8 in list_of_algorithms:
-    tic = time.time()
-    res = g2sHarker.g2sDirichlet(g_x, g_y)
-    toc = time.time() - tic
-    all_res.append(res)
-    all_toc.append(toc)
-    all_titles.append('VIII - g2sDirichlet')
-
-if 9 in list_of_algorithms:
-    tic = time.time()
-    res = g2sHarker.g2sTikhonov(g_x, g_y)
-    toc = time.time() - tic
-    all_res.append(res)
-    all_toc.append(toc)
-    all_titles.append('IX - g2sTikhonov')
-
-if 10 in list_of_algorithms:
-    tic = time.time()
-    res = g2sHarker.g2sTikhonovStd(g_x, g_y)
-    toc = time.time() - tic
-    all_res.append(res)
-    all_toc.append(toc)
-    all_titles.append('X - g2sTikhonovStd')
-
-
-# %%
-
-if plotSurfsFlag:
-
-    for i, res in enumerate(all_res):
-
-        print('Plot results: ' + all_titles[i])
-
+    if plotSurfsFlag:
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
         ax.plot_surface(xx, yy, res,
                         rstride=nx//100, cstride=ny//100,
                         cmap='viridis', linewidth=0.1)
-        plt.title(all_titles[i])
+        plt.title(all_titles[-1])
         plt.tight_layout()
         plt.savefig(unique_fname())
         plt.close()
 
-
-# plt.show(block=True)
 
 # %%
 
