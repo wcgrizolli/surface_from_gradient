@@ -8,7 +8,7 @@ originally written in `MATLAB©`
 
 ## Documentation
 
-The original `MATLAB` codes are described here:
+The original `MATLAB` codes are described on the links below. They are for reference and credits only. It is not necessary to download any file. [Step 3](https://github.com/wcgrizolli/surface_from_gradient#step-3---installing-the-matlab-files) below will take care of the download of the `MATLAB©` files
 
 1) [Agrawal, A., Raskar, R., & Chellappa, R. (2006). What Is the Range of Surface Reconstructions from a Gradient Field?](https://doi.org/10.1007/11744023_45)
 
