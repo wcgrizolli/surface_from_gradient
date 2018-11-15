@@ -155,7 +155,7 @@ Load the `ENV_NAME` conda enviroment, open `spyder`, load one of the examples, r
 
 
 
-[surface_from_gradient]: https://gitlab.com/wcgrizolli/surface_from_gradient "surface_from_gradient"
+[surface_from_gradient]: https://github.com/wcgrizolli/surface_from_gradient "surface_from_gradient"
 [octave]: https://www.gnu.org/software/octave/ "GNU Octave"
 [oct2py]: http://blink1073.github.io/oct2py/ "oct2py"
 [conda]: https://conda.io/docs/index.html "conda"
